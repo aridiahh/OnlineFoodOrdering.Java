@@ -1,13 +1,9 @@
-import java.util.ArrayList;
-
 public class User {
     //deklarasi atribut
     private String username, password, status;
     private String username_cust, password_cust;
     static cls clearScreen = new cls();
-    //static menuLogin loginn = new menuLogin();
-    //static menuLogin menuu = new menuLogin();
-    static ArrayList<String> idRest, namaRest, alamatRest;
+
     //Getter dan setter untuk atribut username_cust
     public String getUsername_cust() {
         return username_cust;
@@ -54,14 +50,6 @@ public class User {
     }
 
     public static void main(String[] args) {
-        idRest = new ArrayList<>();
-        namaRest = new ArrayList<>();
-        alamatRest = new ArrayList<>();
-        //idRestMen = new ArrayList<>();
-        //namaMenu2 = new ArrayList<>();
-        //hargaMenu = new ArrayList<>();
-        //idMenu2 = new ArrayList<>();
-
         if (menuLogin.login()) {
             while (true) {
                 menuLogin.menu();

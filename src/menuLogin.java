@@ -28,6 +28,7 @@ public class menuLogin {
         System.out.print("  Masukkan password: ");
         password = input.nextLine();
         System.out.println("|__________________________________________________________|");
+        cls.clearScreen();
 
         //memeriksa apakah username dan password yang diinputkan user adalah benar
         if (users.getUsername().equals(username) || users.getUsername_cust().equals(username)) {
@@ -56,21 +57,24 @@ public class menuLogin {
             System.out.println("| 2. Tambah Resto                                          |");
             System.out.println("| 3. Hapus Resto                                           |");
             System.out.println("| 4. Kembali ke Login                                      |");
+            System.out.println("| 5. Keluar                                                |");
             System.out.println("|__________________________________________________________|");
             System.out.print("  Pilihan(1/2/3/4): ");
             pilihan = Integer.parseInt(input.nextLine());
             if (pilihan == 1) {
+                cls.clearScreen();
                 menuAdmin.lihatResto(); //melihat resto apa saja yang ada
-                cls.clearScreen();
             } else if (pilihan == 2) {
+                cls.clearScreen();
                 menuAdmin.tambahResto(); //menambahkan resto yang lain (baru)
-                cls.clearScreen();
             } else if (pilihan == 3) {
+                cls.clearScreen();
                 menuAdmin.hapusResto(); //menghapus resto yang admin ingin hapus
-                cls.clearScreen();
             } else if (pilihan == 4) {
-                login(); //kembali ke menu login
                 cls.clearScreen();
+                login(); //kembali ke menu login
+            } else if (pilihan == 5) {
+                System.exit(0); //keluar
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");
                 cls.clearScreen();
@@ -87,21 +91,25 @@ public class menuLogin {
             System.out.println("| 2. Buat Pesanan                                          |");
             System.out.println("| 3. Lihat Pesanan                                         |");
             System.out.println("| 4. Kembali ke Login                                      |");
+            System.out.println("| 5. Keluar                                                |");
             System.out.println("|__________________________________________________________|");
-            System.out.print("  Pilihan(1/2/3/4): ");
+            System.out.print("  Pilihan(1/2/3/4/5): ");
             pilihan = Integer.parseInt(input.nextLine());
             if (pilihan == 1) {
+                cls.clearScreen();
                 customer.lihatResto(); //melihat resto apa saja yang ada
-                cls.clearScreen();
             } else if (pilihan == 2) {
+                cls.clearScreen();
                 customer.tambahPesanan(); //untuk dapat menambah pesanan
-                cls.clearScreen();
             } else if (pilihan == 3) {
+                cls.clearScreen();
                 customer.lihatPesanan(); //melihat pesanan yang disediakan
-                cls.clearScreen();
             } else if (pilihan == 4) {
-                login(); //kembali ke menu login
                 cls.clearScreen();
+                login(); //kembali ke menu login
+            } else if (pilihan == 5) {
+                cls.clearScreen();
+                System.exit(0); //keluar
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");
                 cls.clearScreen();
