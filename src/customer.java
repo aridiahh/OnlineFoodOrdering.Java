@@ -6,12 +6,9 @@ import java.util.StringTokenizer;
 public class customer {
     static ArrayList<Object> orderList = new ArrayList<Object>();
     static ArrayList<String> idRest, namaRest, alamatRest;
-    // static ArrayList<Integer> hargaMenu;
-    static customer showMenuu = new customer();
     static ArrayList<Object> restoList = new ArrayList<Object>();
-    static String nama, alamat, idResto;
+    static String idResto;
     static ArrayList<Object> menuList = new ArrayList<Object>();
-    static String namaMenu, idMenu;
     static Scanner input = new Scanner(System.in);
 
     //untuk dapat melihat daftar resto yang ada
@@ -49,7 +46,15 @@ public class customer {
     }
 
 
-    //untuk menampilkan menu-menu dari sebuah resto
+    /*
+        Untuk menampilkan menu-menu dari sebuah resto.
+        Parameter idResto berisi id resto yang akan
+        ditampilkan menu-menunya. Fungsi akan mengambil
+        elemen dari menuList dan memeriksa apakah idResto
+        sama dengan id resto di menu tersebut. Jika sama,
+        fungsi akan menampilkan id menu, nama menu, dan
+        harga menu.
+     */
     public static void showMenu(String idResto) {
         StringTokenizer stringtok = null;
         for (int i = 0; i < menuList.size(); i++) {
@@ -66,11 +71,16 @@ public class customer {
         }
     }
 
+    //fungsi untuk menambah pesanan
     public static void tambahPesanan() {
+        //mengambil jarak secara acak
         int jarak = (int) (Math.random()*3) + 2;
+        //meminta input id resto dari user
         System.out.print("Masukan id resto: ");
         idResto = input.nextLine();
+        //menampilkan daftar menu yang tersedia untuk resto tertentu
         showMenu(idResto);
+        //inisialisasi variabel untuk menyimpan informasi menu yang dipesan
         int[] harga = new int[100];
         int[] sub_total = new int[100];
         int[] kuantitas = new int[100];
@@ -78,7 +88,12 @@ public class customer {
         String[] id = new String[100];
         String[] id_menu = new String[100];
         int total = 0;
+
         // proses pemesanan
+        /*
+            mengambil informasi harga, nama, dan id menu
+            yang tersedia untuk resto tertentu dari menuList
+         */
         StringTokenizer stringtok = null;
         for (int i = 0; i < menuList.size(); i++) {
             stringtok = new StringTokenizer(menuList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");
@@ -88,6 +103,11 @@ public class customer {
                 harga[i] = Integer.parseInt(stringtok.nextToken().trim());
             }
         }
+        /*
+            meminta input id menu dan kuantitas menu
+            yang dipesan dari user dan menghitung
+            sub-total harga dari pesanan
+         */
         System.out.print("Banyak Pesanan: ");
         int banyak = Integer.parseInt(input.nextLine());
         for (int i = 0; i < banyak; i++) {
@@ -100,8 +120,10 @@ public class customer {
                 System.out.println("Sub Total: "+sub_total[i]);
             }
             total += sub_total[i];
+            //menambahkan informasi pesanan ke dalam orderList
             orderList.add(Arrays.asList(jarak, idResto, id_menu[i], kuantitas[i], sub_total[i]));
         }
+        //menampilkan total harga dari pesanan
         System.out.println("Total Pemesanan: " + total);
 
     }

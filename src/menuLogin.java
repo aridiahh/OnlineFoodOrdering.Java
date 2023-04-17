@@ -3,13 +3,7 @@ import java.util.Scanner;
 public class menuLogin {
     static cls clss = new cls();
     static User users = new User();
-    static menuLogin loginn = new menuLogin();
     static Scanner input = new Scanner(System.in);
-    static customer tambahPesanann = new customer();
-    static customer lihatPesanann = new customer();
-    static menuAdmin lihatRestoo = new menuAdmin();
-    static menuAdmin tambahRestoo = new menuAdmin();
-    static menuAdmin hapusRestoo = new menuAdmin();
     static int pilihan;
 
     // method login
@@ -53,7 +47,7 @@ public class menuLogin {
     // Ditampilkan jika users berhasil login
     public static void menu() {
         // Akan tampil jika user adalah admin
-        if (users.getStatus() == "Admin") {
+        if (users.getStatus().equals("Admin")){
             System.out.println(" __________________________________________________________");
             System.out.println("|                    M E N U  A D M I N                    |");
             System.out.println("|              Silahkan Pilih Opsi Di Bawah Ini.           |");
@@ -79,11 +73,12 @@ public class menuLogin {
                 cls.clearScreen();
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");
-                System.exit(0); //keluar
+                cls.clearScreen();
+                menu(); //ke menu dari Admin maupun Customer
             }
 
             // Akan tampil jika user adalah customer
-        } else if (users.getStatus() == "Customer") {
+        } else if (users.getStatus().equals("Customer")) {
             System.out.println(" __________________________________________________________");
             System.out.println("|                 M E N U  C U S T O M E R                 |");
             System.out.println("|             Silahkan Pilih Opsi Di Bawah Ini.            |");
@@ -109,7 +104,8 @@ public class menuLogin {
                 cls.clearScreen();
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");
-                System.exit(0); //keluar
+                cls.clearScreen();
+                menu(); //ke menu dari Admin maupun Customer
             }
         }
     }

@@ -5,15 +5,9 @@ public class User {
     private String username, password, status;
     private String username_cust, password_cust;
     static cls clearScreen = new cls();
-    static menuLogin loginn = new menuLogin();
-    static menuLogin menuu = new menuLogin();
-
-    static ArrayList<Object> restoList = new ArrayList<Object>();
+    //static menuLogin loginn = new menuLogin();
+    //static menuLogin menuu = new menuLogin();
     static ArrayList<String> idRest, namaRest, alamatRest;
-    // static ArrayList<Integer> hargaMenu;
-    static ArrayList<Object> menuList = new ArrayList<Object>();
-    static String nama, alamat, idResto;
-
     //Getter dan setter untuk atribut username_cust
     public String getUsername_cust() {
         return username_cust;
@@ -68,9 +62,9 @@ public class User {
         //hargaMenu = new ArrayList<>();
         //idMenu2 = new ArrayList<>();
 
-        if (loginn.login()) {
+        if (menuLogin.login()) {
             while (true) {
-                menuu.menu();
+                menuLogin.menu();
             }
         } else {
             System.out.println("Username atau Password yang Diinputkan Salah!");
