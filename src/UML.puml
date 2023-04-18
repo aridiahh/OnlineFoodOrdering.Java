@@ -1,0 +1,68 @@
+@startuml
+
+class user {
+- username: String
+- password: String
+- status: String
+- password_cust: String
+
++ getUsername(): String
++ setUsername(username: String): void
++ getPassword(): String
++ setPassword(password: String): void
++ getStatus(): String
++ setStatus(status: String): void
++ getUsername_cust(): String
++ setUsername_cust(username_cust: String): void
++ getPassword_cust(): String
++ setPassword_cust(password_cust: String): void
+
++ main(args: String[]): void
+}
+
+class menuLogin {
+- users: User
+- input: Scanner
+- pilihan: int
+
++ login(): boolean
++ menu(): void
+}
+
+class menuAdmin {
+- input: Scanner
+- restoList: ArrayList<Object>
+- menuList: ArrayList<Object>
+- nama: String
+- alamat: String
+- idResto: String
+- idMenu: String
+- namaMenu: String
+- idRest: ArrayList<String>
+- namaRest: ArrayList<String>
+- alamatRest: ArrayList<String>
+
++ lihatResto(): void
++ tambahResto(): void
++ hapusResto(): void
+}
+
+class customer {
+- orderList: ArrayList<Object>
+- idRest: ArrayList<String>
+- namaRest: ArrayList<String>
+- alamatRest: ArrayList<String>
+- restoList: ArrayList<Object>
+- menuList: ArrayList<Object>
+
++ lihatResto(): void
++ showMenu(idResto: String): void
++ tambahPesanan(): void
+}
+
+user <--> menuLogin
+menuAdmin --> menuLogin
+customer --> menuLogin
+customer --> menuAdmin
+
+@enduml
