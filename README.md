@@ -221,11 +221,163 @@ Dalam kode di atas, terdapat beberapa langkah yang dijelaskan sebagai berikut:
 
 Ringkasnya, kode di atas menggambarkan alur eksekusi sebuah program Java yang memanggil metode "login()" dari objek "menuLogin" untuk melakukan proses login. Jika login berhasil (mengembalikan nilai true), maka program akan menampilkan menu pilihan kepada pengguna dalam perulangan yang berjalan terus menerus. Jika login gagal (mengembalikan nilai false), maka program akan mencetak pesan kesalahan.
 
+## Bagian Customer
 
+![image](https://user-images.githubusercontent.com/113997689/232711465-5027ce88-1d1a-4c1d-8d6f-d6dcdf85a529.png)
 
+Kode di atas adalah bagian awal dari sebuah program Java yang berisi beberapa import statement dan deklarasi beberapa kelas dan variabel. Berikut adalah penjelasan lebih rinci tentang kode tersebut:
 
+1. Import Statement:
+   - `import java.util.ArrayList;`: Mengimport kelas ArrayList dari paket java.util. ArrayList adalah salah satu implementasi dari antarmuka List di Java yang digunakan untuk menyimpan kumpulan objek dengan ukuran yang dapat berubah-ubah.
+   - `import java.util.Arrays;`: Mengimport kelas Arrays dari paket java.util. Arrays adalah kelas utilitas yang menyediakan metode untuk memanipulasi array, seperti mengurutkan, mencari, dan mengisi array.
+   - `import java.util.Scanner;`: Mengimport kelas Scanner dari paket java.util. Scanner digunakan untuk membaca masukan dari pengguna melalui konsol atau aliran masukan lainnya.
+   - `import java.util.StringTokenizer;`: Mengimport kelas StringTokenizer dari paket java.util. StringTokenizer digunakan untuk memecah suatu string menjadi token-token yang dipisahkan oleh delimiter tertentu.
 
+2. Deklarasi Kelas:
+   - `public class customer {`: Mendeklarasikan kelas customer. Kelas ini kemungkinan besar berfungsi untuk mengelola data pelanggan dan pesanan dalam sebuah aplikasi.
 
+3. Deklarasi Variabel:
+   - `static ArrayList<Object> orderList = new ArrayList<Object>();`: Mendeklarasikan variabel orderList sebagai objek ArrayList yang dapat menyimpan objek dari tipe data apa pun. Variabel ini digunakan untuk menyimpan daftar pesanan.
+   - `static ArrayList<String> idRest, namaRest, alamatRest;`: Mendeklarasikan variabel idRest, namaRest, dan alamatRest sebagai objek ArrayList yang dapat menyimpan objek dari tipe data String. Variabel ini kemungkinan digunakan untuk menyimpan data mengenai restoran, seperti ID, nama, dan alamat restoran.
+   - `static ArrayList<Object> restoList = new ArrayList<Object>();`: Mendeklarasikan variabel restoList sebagai objek ArrayList yang dapat menyimpan objek dari tipe data apa pun. Variabel ini digunakan untuk menyimpan daftar restoran.
+   - `static ArrayList<Object> menuList = new ArrayList<Object>();`: Mendeklarasikan variabel menuList sebagai objek ArrayList yang dapat menyimpan objek dari tipe data apa pun. Variabel ini digunakan untuk menyimpan daftar menu makanan atau minuman.
+
+Kode di atas adalah bagian awal dari sebuah program Java yang berisi deklarasi kelas customer dan beberapa variabel untuk menyimpan data pelanggan, pesanan, restoran, dan menu. Namun, untuk memahami secara keseluruhan tentang fungsionalitas program, perlu melihat bagian kode yang lebih lanjut.
+
+![image](https://user-images.githubusercontent.com/113997689/232712081-7fd72972-4f4d-4577-8279-81aa0e057ada.png)
+
+Kode di atas adalah suatu metode dengan nama `lihatResto()` yang bertujuan untuk menampilkan daftar restoran yang ada. Berikut adalah penjelasan lebih rinci tentang kode tersebut:
+
+1. Looping:
+   - `for (int i = 0; i < restoList.size(); i++) {`: Menggunakan looping `for` untuk mengiterasi setiap elemen dalam `restoList`, yang merupakan objek ArrayList yang menyimpan daftar restoran. Looping ini akan berjalan sebanyak jumlah elemen yang ada dalam `restoList`.
+
+2. Objek StringTokenizer:
+   - `StringTokenizer stringtok = new StringTokenizer(restoList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");`: Mendeklarasikan objek StringTokenizer dengan nama `stringtok`. Objek ini digunakan untuk memecah string yang mengandung informasi mengenai restoran menjadi token-token yang dipisahkan oleh karakter koma (",").
+   - `restoList.toArray()[i].toString().replace("[", "").replace("]", "")`: Mengambil elemen ke-i dari `restoList` menggunakan `toArray()` dan mengonversikannya menjadi string dengan `toString()`. Selanjutnya, menghapus karakter "[" dan "]" dari string tersebut menggunakan `replace("[", "")` dan `replace("]", "")`.
+
+3. Penyimpanan Data:
+   - `idRest.add(stringtok.nextToken());`: Menyimpan token pertama dari `stringtok` ke dalam ArrayList `idRest`. Token pertama dianggap sebagai ID restoran.
+   - `namaRest.add(stringtok.nextToken());`: Menyimpan token kedua dari `stringtok` ke dalam ArrayList `namaRest`. Token kedua dianggap sebagai nama restoran.
+   - `alamatRest.add(stringtok.nextToken());`: Menyimpan token ketiga dari `stringtok` ke dalam ArrayList `alamatRest`. Token ketiga dianggap sebagai alamat restoran.
+
+Dengan demikian, setiap elemen dalam `restoList` akan dipisahkan menjadi ID restoran, nama restoran, dan alamat restoran menggunakan objek StringTokenizer, dan data tersebut akan disimpan dalam tiga ArrayList yang terpisah, yaitu `idRest`, `namaRest`, dan `alamatRest`. Tujuan dari kode ini adalah untuk mengambil informasi mengenai restoran dari `restoList` dan menyimpannya dalam tiga ArrayList yang berbeda, sehingga informasi tersebut dapat ditampilkan atau digunakan dalam bagian selanjutnya dari program.
+
+![image](https://user-images.githubusercontent.com/113997689/232712445-6e653402-d5a6-4fef-82f4-fd034a56566f.png)
+
+Kode di atas merupakan suatu loop untuk menampilkan informasi tentang restoran yang ada, termasuk ID restoran, nama restoran, alamat restoran, dan daftar menu yang tersedia untuk setiap restoran. Berikut adalah penjelasan lebih rinci tentang kode tersebut:
+
+1. Looping:
+   - `for (int j = 0; j < idRest.size(); j++) {`: Menggunakan looping `for` untuk mengiterasi setiap elemen dalam `idRest`, yang merupakan objek ArrayList yang menyimpan daftar ID restoran. Looping ini akan berjalan sebanyak jumlah elemen yang ada dalam `idRest`, yang mengindikasikan jumlah restoran yang ada.
+
+2. Menampilkan Informasi Restoran:
+   - `System.out.print("Index: ");`: Menampilkan label "Index: " tanpa karakter baru (new line).
+   - `System.out.println(j);`: Menampilkan nilai variabel `j` sebagai indeks restoran, diikuti dengan karakter baru (new line).
+   - `System.out.print("Id Resto: ");`: Menampilkan label "Id Resto: " tanpa karakter baru (new line).
+   - `System.out.println(idRest.toArray()[j].toString().replace("[", "").replace("]", ""));`: Menampilkan ID restoran yang tersimpan dalam ArrayList `idRest` menggunakan indeks `j`. Menggunakan `toArray()` dan `toString()` untuk mengonversi elemen dalam `idRest` menjadi string, dan kemudian menghapus karakter "[" dan "]" dari string tersebut menggunakan `replace("[", "")` dan `replace("]", "")`.
+   - `System.out.print("Nama Resto: ");`: Menampilkan label "Nama Resto: " tanpa karakter baru (new line).
+   - `System.out.println(namaRest.toArray()[j].toString().replace("[", "").replace("]", ""));`: Menampilkan nama restoran yang tersimpan dalam ArrayList `namaRest` menggunakan indeks `j`. Menggunakan `toArray()` dan `toString()` untuk mengonversi elemen dalam `namaRest` menjadi string, dan kemudian menghapus karakter "[" dan "]" dari string tersebut menggunakan `replace("[", "")` dan `replace("]", "")`.
+   - `System.out.print("Alamat Resto: ");`: Menampilkan label "Alamat Resto: " tanpa karakter baru (new line).
+   - `System.out.println(alamatRest.toArray()[j].toString().replace("[", "").replace("]", ""));`: Menampilkan alamat restoran yang tersimpan dalam ArrayList `alamatRest` menggunakan indeks `j`. Menggunakan `toArray()` dan `toString()` untuk mengonversi elemen dalam `alamatRest` menjadi string, dan kemudian menghapus karakter "[" dan "]" dari string tersebut menggunakan `replace("[", "")` dan `replace("]", "")`.
+
+3. Memanggil Fungsi `showMenu()`:
+   - `showMenu(idRest.get(j));`: Memanggil fungsi `showMenu()` dengan argumen `idRest.get(j)`, yang mengambil ID restoran dari ArrayList `idRest` menggunakan indeks `j`. Fungsi `showMenu()` kemungkinan merupakan suatu bagian lain dalam program yang bertanggung jawab untuk menampilkan daftar menu yang tersedia untuk restoran tertentu berdasarkan ID restoran yang diberikan.
+
+Dengan demikian, loop ini akan menampilkan informasi tentang setiap restoran, termasuk ID restoran, nama restoran, alamat restoran, dan daftar menu yang tersedia untuk setiap restoran berdasarkan data yang tersimpan dalam ArrayList.
+
+![image](https://user-images.githubusercontent.com/113997689/232712967-297fa07e-ae30-4ed9-90ea-a073fc4479a2.png)
+
+Kode di atas merupakan suatu fungsi dalam suatu program yang bertujuan untuk menampilkan menu-menu dari sebuah restoran berdasarkan ID restoran yang diberikan sebagai parameter. Berikut adalah penjelasan lebih rinci tentang kode tersebut:
+
+1. Fungsi `showMenu()`:
+   - `public static void showMenu(String idResto) {`: Mendefinisikan sebuah fungsi bernama `showMenu()` dengan tipe pengembalian `void` (tidak mengembalikan nilai) dan menerima satu parameter bertipe `String` yang disebut `idResto`, yang akan digunakan untuk mengidentifikasi restoran yang akan ditampilkan menu-menunya.
+
+2. Looping:
+   - `for (int i = 0; i < menuList.size(); i++) {`: Menggunakan looping `for` untuk mengiterasi setiap elemen dalam `menuList`, yang kemungkinan merupakan suatu objek ArrayList atau list yang menyimpan daftar menu-menu restoran.
+   
+3. Parsing Data Menu:
+   - `stringtok = new StringTokenizer(menuList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");`: Menggunakan objek `StringTokenizer` untuk mem-parsing data menu yang ada dalam `menuList`. `menuList.toArray()[i]` mengakses elemen menu pada indeks `i` dalam `menuList`, kemudian menggunakan `toString()` untuk mengonversi elemen tersebut menjadi string. `replace("[", "").replace("]", "")` digunakan untuk menghapus karakter "[" dan "]" dari string tersebut agar hanya sisa data menu yang terpisah oleh koma (",").
+   
+4. Memeriksa ID Restoran:
+   - `if (idResto.equals(stringtok.nextToken())) {`: Menggunakan `equals()` untuk memeriksa apakah `idResto` yang diberikan sama dengan nilai token pertama yang diambil dari `StringTokenizer` (`stringtok.nextToken()`), yang seharusnya berisi ID restoran pada data menu yang sedang diperiksa. Jika kedua nilai ID sama, maka blok kode di dalam if akan dijalankan.
+   
+5. Menampilkan Informasi Menu:
+   - `System.out.print("Id Menu: ");`: Menampilkan label "Id Menu: " tanpa karakter baru (new line).
+   - `System.out.println(stringtok.nextToken());`: Menampilkan nilai token kedua yang diambil dari `StringTokenizer`, yang seharusnya berisi ID menu pada data menu yang sedang diperiksa.
+   - `System.out.print("Nama Menu: ");`: Menampilkan label "Nama Menu: " tanpa karakter baru (new line).
+   - `System.out.println(stringtok.nextToken());`: Menampilkan nilai token ketiga yang diambil dari `StringTokenizer`, yang seharusnya berisi nama menu pada data menu yang sedang diperiksa.
+   - `System.out.print("Harga Menu: ");`: Menampilkan label "Harga Menu: " tanpa karakter baru (new line).
+   - `System.out.println(stringtok.nextToken());`: Menampilkan nilai token keempat yang diambil dari `StringTokenizer`, yang seharusnya berisi harga menu pada data menu yang sedang diperiksa.
+   - `System.out.println("========================================================\n");`: Menampilkan karakter garis pemisah sebagai pemisah antara menu-menu yang ditampilkan untuk setiap restoran, untuk memberikan tampilan yang lebih terstruktur dan rapi.
+   
+![image](https://user-images.githubusercontent.com/113997689/232713929-0aa365d8-8c73-49f5-a2fa-962e08edc05e.png)
+
+Program di atas merupakan sebuah fungsi dalam sebuah sistem pemesanan makanan di suatu restoran. Fungsi ini digunakan untuk menampilkan daftar pesanan yang ada dalam orderList, yang merupakan suatu list yang berisi data-data pesanan yang telah dibuat sebelumnya.
+
+Berikut adalah penjelasan lebih rinci mengenai bagian-bagian dari fungsi ini:
+
+1. Looping for-each: `for (Object order : orderList)` digunakan untuk melakukan iterasi terhadap setiap elemen dalam orderList. Dalam setiap iterasi, elemen pesanan (order) diambil dan diolah.
+
+2. Mengubah objek menjadi string: `String orderStr = order.toString()` digunakan untuk mengubah objek pesanan menjadi string, sehingga data-data pesanan dapat diakses dengan mudah menggunakan StringTokenizer.
+
+3. StringTokenizer: `StringTokenizer stringtok = new StringTokenizer(orderStr.replace("[", "").replace("]", ""), ",")` digunakan untuk memecah string pesanan menjadi token-token yang dipisahkan oleh karakter koma (','). String pesanan dihilangkan tanda kurung siku ('[' dan ']') yang tidak diperlukan agar hanya data-data pesanan yang diakses.
+
+4. Menampilkan data pesanan: Selanjutnya, data-data pesanan seperti jarak antara pelanggan dengan restoran, id restoran, id menu yang dipesan, kuantitas pesanan, dan total harga pesanan ditampilkan menggunakan System.out.print() dan System.out.println().
+
+5. Menampilkan jumlah pesanan: Terakhir, jumlah total pesanan (orderList.size()) ditampilkan sebagai informasi tambahan.
+
+![image](https://user-images.githubusercontent.com/113997689/232714899-fcab10c4-2f26-48fe-9674-44081a70d546.png)
+
+Program di atas merupakan suatu fungsi dalam sistem pemesanan makanan di restoran. Fungsi ini bertujuan untuk menambahkan pesanan baru ke dalam sistem. Berikut adalah penjelasan lebih rinci mengenai bagian-bagian dari fungsi ini:
+
+1. Mengambil jarak secara acak: `int jarak = (int) (Math.random()*3) + 2` digunakan untuk menghasilkan angka acak antara 2 dan 4 (inklusif) sebagai representasi jarak antara pelanggan dengan restoran. Angka ini dihasilkan menggunakan fungsi `Math.random()` yang menghasilkan angka acak antara 0 dan 1, kemudian dikalikan dengan 3, ditambahkan 2, dan dikonversi menjadi tipe data integer (int) untuk mendapatkan angka acak antara 2 dan 4.
+
+2. Meminta input id resto dari user: `System.out.print("Masukan id resto: ");` dan `Scanner input = new Scanner(System.in);` digunakan untuk menampilkan pesan kepada pengguna untuk memasukkan id resto yang ingin dipesan. Kemudian, `Scanner` digunakan untuk mengambil input dari pengguna dan menyimpannya dalam variabel lokal `idResto`.
+
+3. Menampilkan daftar menu yang tersedia untuk resto tertentu: `showMenu(idResto);` digunakan untuk memanggil fungsi `showMenu()` yang telah didefinisikan sebelumnya, dengan argumen idResto yang telah diinputkan oleh pengguna. Fungsi `showMenu()` akan menampilkan daftar menu yang tersedia untuk restoran dengan id yang sesuai.
+
+4. Inisialisasi variabel untuk menyimpan informasi menu yang dipesan: `int[] harga`, `int[] sub_total`, `int[] kuantitas`, `String[] menu`, `String[] id`, dan `String[] id_menu` digunakan untuk menyimpan informasi-informasi terkait pesanan yang akan ditambahkan, seperti harga menu, sub-total harga, kuantitas pesanan, nama menu, id pesanan, dan id menu yang dipesan. Variabel `total` digunakan untuk menyimpan total harga dari seluruh pesanan yang akan ditambahkan.
+
+![image](https://user-images.githubusercontent.com/113997689/232715477-fa7a3f0b-1e28-4a34-adea-a775bcfc1354.png)
+
+Program di atas merupakan bagian dari proses pemesanan dalam sistem pemesanan makanan di restoran. Bagian ini bertujuan untuk mengambil informasi harga, nama, dan id menu yang tersedia untuk restoran tertentu dari `menuList`. Berikut adalah penjelasan lebih rinci mengenai bagian-bagian dari program ini:
+
+1. `StringTokenizer stringtok = null;` digunakan untuk mendeklarasikan objek `StringTokenizer` dengan nama variabel `stringtok` dan diinisialisasi dengan nilai `null`. Objek `StringTokenizer` digunakan untuk memisahkan string menjadi token-token yang dipisahkan oleh suatu delimiter.
+
+2. `for (int i = 0; i < menuList.size(); i++) { ... }` digunakan untuk melakukan iterasi terhadap `menuList`, yang merupakan daftar menu yang tersedia dalam sistem. `menuList` adalah suatu koleksi atau list yang berisi informasi mengenai menu-menu yang tersedia, seperti id restoran, id menu, nama menu, dan harga menu.
+
+3. `stringtok = new StringTokenizer(menuList.get(i).toString().replace("[", "").replace("]", ""), ",");` digunakan untuk menginisialisasi objek `stringtok` dengan string yang diperoleh dari `menuList` pada indeks i. String ini kemudian dihilangkan tanda kurung siku ([ dan ]) menggunakan metode `replace()` untuk menghapus karakter "[" dan "]" dari string, dan dipecah menjadi token-token yang dipisahkan oleh tanda koma (",") menggunakan objek `StringTokenizer`.
+
+4. `if (idResto.equals(stringtok.nextToken())) { ... }` digunakan untuk membandingkan id restoran yang diinputkan oleh pengguna (`idResto`) dengan token pertama yang diperoleh dari `stringtok`, yang merupakan id restoran dari menu yang sedang diiterasi. Jika kedua id restoran tersebut sama, maka informasi menu seperti id, nama, dan harga akan diambil dari token-token selanjutnya menggunakan metode `nextToken()` dan disimpan dalam variabel `id`, `menu`, dan `harga` pada indeks yang sama dengan indeks iterasi saat ini.
+
+5. `id[i] = stringtok.nextToken().trim();`, `menu[i] = stringtok.nextToken().trim();`, dan `harga[i] = Integer.parseInt(stringtok.nextToken().trim());` digunakan untuk menyimpan informasi menu yang ditemukan dari `menuList` ke dalam variabel `id`, `menu`, dan `harga` pada indeks yang sama dengan indeks iterasi saat ini (`i`). Metode `trim()` digunakan untuk menghapus spasi di awal dan akhir string, dan `Integer.parseInt()` digunakan untuk mengubah string harga menjadi tipe data integer.
+
+Dengan demikian, bagian ini mengambil informasi harga, nama, dan id menu yang tersedia untuk restoran tertentu dari `menuList` dan menyimpannya dalam variabel-variabel terkait, sehingga informasi ini dapat digunakan dalam proses selanjutnya dalam sistem pemesanan makanan.
+
+![image](https://user-images.githubusercontent.com/113997689/232715771-57b6a3a7-2549-420a-ba1c-6982500b46bb.png)
+
+Program ini adalah bagian dari proses pemesanan dalam suatu sistem yang menerima input pesanan dari pengguna. Berikut adalah penjelasan dari program ini:
+
+1. Mengambil input jumlah pesanan dari pengguna dengan menggunakan `System.out.print("Banyak Pesanan: ");` untuk menampilkan pesan ke layar agar pengguna memasukkan jumlah pesanan yang diinginkan, dan `int banyak = Integer.parseInt(input.nextLine());` untuk mengambil input angka jumlah pesanan yang dimasukkan oleh pengguna.
+
+2. Membaca input id menu, kuantitas, dan menghitung sub total harga pesanan untuk setiap pesanan yang dimasukkan oleh pengguna. Loop `for (int i = 0; i < banyak; i++)` digunakan untuk mengulangi proses pemasukan data pesanan sebanyak jumlah pesanan yang diinputkan oleh pengguna.
+
+3. Di dalam loop, program menggunakan `System.out.print("Masukkan id menu: ");` untuk menampilkan pesan ke layar agar pengguna memasukkan id menu yang diinginkan, dan `id_menu[i] = input.nextLine();` untuk mengambil input id menu yang dimasukkan oleh pengguna dan menyimpannya dalam array `id_menu` pada indeks ke-i.
+
+4. Program selanjutnya menggunakan `System.out.print("Kuantitas: ");` untuk menampilkan pesan ke layar agar pengguna memasukkan kuantitas pesanan yang diinginkan, dan `kuantitas[i] = Integer.parseInt(input.nextLine());` untuk mengambil input kuantitas pesanan yang dimasukkan oleh pengguna dan menyimpannya dalam array `kuantitas` pada indeks ke-i.
+
+5. Setelah itu, program menggunakan variabel boolean `menuFound` untuk melakukan pencarian id menu yang sesuai dengan id yang dimasukkan oleh pengguna dalam array `menuList`. Loop `for (int j = 0; j < menuList.size(); j++)` digunakan untuk mengulangi pencarian menu dalam `menuList`.
+
+6. Di dalam loop pencarian, program menggunakan `StringTokenizer` untuk memisahkan data menu dalam `menuList` yang dipisahkan oleh tanda koma (',') dan mengambil nilai id, nama, dan harga menu yang ada. Kemudian, program membandingkan id menu yang dimasukkan oleh pengguna dengan id menu yang ada dalam `menuList` menggunakan `id_menu[i].equals(currId)`.
+
+7. Jika id menu yang dimasukkan oleh pengguna ditemukan dalam `menuList`, program menghitung sub total harga pesanan untuk menu tersebut dengan mengalikan kuantitas dengan harga menu (`sub_total[i] = kuantitas[i] * currHarga;`) dan menampilkan informasi sub total harga ke layar dengan `System.out.println("Sub Total: " + sub_total[i]);`.
+
+8. Jika id menu yang dimasukkan oleh pengguna tidak ditemukan dalam `menuList`, program akan menampilkan pesan error ke layar dengan `System.out.println("Menu dengan id " + id_menu[i] + " tidak ditemukan.");`.
+
+9. Setelah itu, program akan menambahkan informasi pesanan ke dalam `orderList` menggunakan `orderList.add(Arrays.asList(jarak, idResto, id_menu[i], kuantitas[i], sub_total[i]));`.
+
+10. Program juga menghitung total harga dari seluruh pesanan yang dimasukkan oleh pengguna dengan `total += sub_total[i];`.
+
+11. Setelah loop selesai, program akan menampilkan total harga dari semua pesanan.
 
 
 
