@@ -4,11 +4,10 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class menuAdmin {
-    //static customer showMenuu = new customer();
     static Scanner input = new Scanner(System.in);
     static ArrayList<Object> restoList = new ArrayList<Object>();
     static ArrayList<Object> menuList = new ArrayList<Object>();
-    static String nama, alamat, idResto, idMenu, namaMenu, harga;
+    static String nama, alamat, idResto, idMenu, namaMenu;
 
     //untuk menampilkan daftar resto beserta menu yang tersedia
     public static void lihatResto() {
@@ -81,7 +80,7 @@ public class menuAdmin {
             harga = Integer.parseInt(input.nextLine());
             System.out.println("|__________________________________________________________|");
             //menambahkan data menu ke dalam list menuList
-            menuList.add(Arrays.asList(idResto, idMenu, namaMenu, harga));
+            menuList.add(Arrays.asList(idResto, idMenu, namaMenu));
 
         }
         //menambahkan data resto ke dalam list restoList
@@ -89,7 +88,6 @@ public class menuAdmin {
     }
 
     static ArrayList<String> idRest, namaRest, alamatRest;
-    static ArrayList<Integer> hargaMenu;
 
     //untuk menghapus data restoran dari list jika ada data tersimpan didalamnya
     public static void hapusResto() {

@@ -97,7 +97,7 @@ public class menuLogin {
             pilihan = Integer.parseInt(input.nextLine());
             if (pilihan == 1) {
                 cls.clearScreen();
-                customer.lihatResto(); //melihat resto apa saja yang ada
+                menuAdmin.lihatResto(); //melihat resto apa saja yang ada
             } else if (pilihan == 2) {
                 cls.clearScreen();
                 customer.tambahPesanan(); //untuk dapat menambah pesanan
@@ -108,7 +108,6 @@ public class menuLogin {
                 cls.clearScreen();
                 login(); //kembali ke menu login
             } else if (pilihan == 5) {
-                cls.clearScreen();
                 System.exit(0); //keluar
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");

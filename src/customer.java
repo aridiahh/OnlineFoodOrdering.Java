@@ -7,9 +7,7 @@ public class customer {
     static ArrayList<Object> orderList = new ArrayList<Object>();
     static ArrayList<String> idRest, namaRest, alamatRest;
     static ArrayList<Object> restoList = new ArrayList<Object>();
-    static String idResto;
     static ArrayList<Object> menuList = new ArrayList<Object>();
-    static Scanner input = new Scanner(System.in);
 
     //untuk dapat melihat daftar resto yang ada
     public static void lihatResto() {
@@ -19,8 +17,7 @@ public class customer {
              idRest, namaRest, dan alamatRest
          */
         for (int i = 0; i < restoList.size(); i++) {
-            StringTokenizer stringtok = new StringTokenizer(
-                    restoList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");
+            StringTokenizer stringtok = new StringTokenizer(restoList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");
             idRest.add(stringtok.nextToken());
             namaRest.add(stringtok.nextToken());
             alamatRest.add(stringtok.nextToken());
@@ -77,7 +74,8 @@ public class customer {
         int jarak = (int) (Math.random()*3) + 2;
         //meminta input id resto dari user
         System.out.print("Masukan id resto: ");
-        idResto = input.nextLine();
+        Scanner input = new Scanner(System.in); // Tambahkan inisialisasi Scanner
+        String idResto = input.nextLine(); // Ubah menjadi variabel lokal
         //menampilkan daftar menu yang tersedia untuk resto tertentu
         showMenu(idResto);
         //inisialisasi variabel untuk menyimpan informasi menu yang dipesan
@@ -93,21 +91,22 @@ public class customer {
         /*
             mengambil informasi harga, nama, dan id menu
             yang tersedia untuk resto tertentu dari menuList
-         */
+        */
         StringTokenizer stringtok = null;
         for (int i = 0; i < menuList.size(); i++) {
-            stringtok = new StringTokenizer(menuList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");
+            stringtok = new StringTokenizer(menuList.get(i).toString().replace("[", "").replace("]", ""), ",");
             if (idResto.equals(stringtok.nextToken())) {
                 id[i] = stringtok.nextToken().trim();
                 menu[i] = stringtok.nextToken().trim();
                 harga[i] = Integer.parseInt(stringtok.nextToken().trim());
             }
         }
+
         /*
             meminta input id menu dan kuantitas menu
             yang dipesan dari user dan menghitung
             sub-total harga dari pesanan
-         */
+        */
         System.out.print("Banyak Pesanan: ");
         int banyak = Integer.parseInt(input.nextLine());
         for (int i = 0; i < banyak; i++) {
@@ -115,9 +114,21 @@ public class customer {
             id_menu[i] = input.nextLine();
             System.out.print("Kuantitas: ");
             kuantitas[i] = Integer.parseInt(input.nextLine());
-            if (id_menu[i].equals(id[i])) {
-                sub_total[i] = kuantitas[i] * harga[i];
-                System.out.println("Sub Total: "+sub_total[i]);
+            boolean menuFound = false; // tambahkan variabel boolean untuk mengecek apakah id_menu[i] ditemukan dalam id[]
+            for (int j = 0; j < menuList.size(); j++) { // tambahkan loop untuk mencari harga dan nama menu yang sesuai dengan id_menu[i]
+                stringtok = new StringTokenizer(menuList.get(j).toString().replace("[", "").replace("]", ""), ",");
+                String currId = stringtok.nextToken().trim();
+                String currMenu = stringtok.nextToken().trim();
+                int currHarga = Integer.parseInt(stringtok.nextToken().trim());
+                if (id_menu[i].equals(currId)) {
+                    sub_total[i] = kuantitas[i] * currHarga;
+                    System.out.println("Sub Total: " + sub_total[i]);
+                    menuFound = true; // set menuFound menjadi true jika id_menu[i] ditemukan
+                    break; // keluar dari loop karena sudah ditemukan harga dan nama menu yang sesuai
+                }
+            }
+            if (!menuFound) {
+                System.out.println("Menu dengan id " + id_menu[i] + " tidak ditemukan."); // tambahkan pesan error jika id_menu[i] tidak ditemukan
             }
             total += sub_total[i];
             //menambahkan informasi pesanan ke dalam orderList
@@ -125,33 +136,30 @@ public class customer {
         }
         //menampilkan total harga dari pesanan
         System.out.println("Total Pemesanan: " + total);
-
     }
 
-    //untuk menampilkan daftar pesanan yang ada
+    // Untuk menampilkan daftar pesanan yang ada
     public static void lihatPesanan() {
-        StringTokenizer stringtok = null;
-        for (int i = 0; i < orderList.size(); i++) {
-            stringtok = new StringTokenizer(orderList.toArray()[i].toString().replace("[", "").replace("]", ""), ",");
-            //menampilkan jarak antara pelanggan dan restoran
+        for (Object order : orderList) {
+            String orderStr = order.toString();
+            StringTokenizer stringtok = new StringTokenizer(orderStr.replace("[", "").replace("]", ""), ",");
+            // Menampilkan jarak antara pelanggan dengan restoran
             System.out.print("Jarak: ");
             System.out.println(stringtok.nextToken());
-            //menampilkan id restoran
+            // Menampilkan id restoran
             System.out.print("Id Resto: ");
             System.out.println(stringtok.nextToken());
-            //menampilkan id menu yang dipesan
+            // Menampilkan id menu yang dipesan
             System.out.print("Id Menu: ");
             System.out.println(stringtok.nextToken());
-            //menampilkan kuantitas pesanan
+            // Menampilkan kuantitas pesanan
             System.out.print("Kuantitas: ");
             System.out.println(stringtok.nextToken());
-            //menampilkan total harga pesanan
+            // Menampilkan total harga pesanan
             System.out.print("Total Harga: ");
             System.out.println(stringtok.nextToken());
         }
-        //menampilkan daftar pesanan dalam bentuk string
-        System.out.println(orderList.toString());
-        //menampilkan jumlah pesanan
-        System.out.println(orderList.size());
+        // Menampilkan jumlah pesanan
+        System.out.println("      Jumlah Pesanan: " + orderList.size());
     }
 }
