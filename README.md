@@ -4,12 +4,52 @@ Program Online Food Ordering merupakan program yang dirancang untuk memenuhi tug
 Program Online Food Ordering tersebut merupakan program penjualan makanan berbasis online yang dapat digunakan untuk memudahkan customer dalam berbelanja makanan tanpa harus berpergian keluar. Didalam program tersebut terdapat 2 tipe user, yaitu admin dan customer. Pada admin memiliki keunggulan yang dimana dapat melihat, menambah, dan menghapus restoran. Sedangkan customer, dapat membuat dan melihat pesanannya.
 Selain itu, terdapat pula data restorannya, yang dimana berisikan tentang nama, alamat, menu makanan atau minuman, dan serta harganya. Dan terdapat pula data ordernya, yang berisikan id retoran, id menu, kuantitas setiap menu (jumlah item), jarak ke lokasi antar, dan juga total harganya. 
 
-Adapun UML dari program tersebut. UML dapat diakses melalui link di bawah ini.
-- LINK : 
+Adapun UML dari program tersebut. Berikut ini merupakan UML dari program tersebut dan beserta penjelasannya.
 
-Berikut merupakan penjelasan tentang kode programnya yang lebih lanjut.
+![UML](https://user-images.githubusercontent.com/113997689/232752907-0ff09937-6a20-4df5-b8f4-f29d7edc511d.png)
 
-## Bagian Login
+A. KELAS `User.java`
+
+Kelas `User` memiliki atribut `username`, `password`, dan `status` yang bersifat private, artinya hanya dapat diakses dalam kelas tersebut.
+Kelas `User` juga memiliki atribut `username_cust` dan `password_cust` yang memiliki aksesibilitas default (tidak diberikan modifier akses), artinya dapat diakses dalam package yang sama.
+Kelas `User` memiliki getter dan setter untuk masing-masing atribut.
+Metode `main` merupakan metode utama dalam program yang akan dieksekusi saat program dijalankan.
+Metode `main` menggunakan kelas `menuLogin` yang tidak terdefinisi dalam kode yang diberikan, mungkin ada kelas terpisah yang tidak ditampilkan dalam kode tersebut.
+
+B. KELAS `menuLogin.java`
+
+`menuLogin` adalah kelas yang berfungsi untuk mengatur menu login pada sistem.
+Atribut:
+1. Atribut `users` bertipe `User` digunakan untuk menyimpan data pengguna.
+2. Atribut `input` bertipe `Scanner` digunakan untuk menerima input dari pengguna.
+3. Atribut `pilihan` bertipe `int` digunakan untuk menyimpan pilihan menu yang diinputkan pengguna.
+Method:
+1. Method `login()` adalah method yang digunakan untuk melakukan proses login. Method ini mengembalikan nilai boolean `true` jika login berhasil dan `false` jika login gagal.
+2. Method `menu()` adalah method yang digunakan untuk menampilkan menu setelah pengguna berhasil login. Method ini mengatur tampilan menu berdasarkan status pengguna (admin atau customer) dan menerima input pilihan menu dari pengguna. Method ini tidak mengembalikan nilai (void).
+   
+C. KELAS `menuAdmin.java`
+
+`menuAdmin` merupakan kelas yang berfungsi sebagai menu admin dalam sistem.
+Atribut-atribut yang dimiliki kelas `menuAdmin` antara lain:
+1. `input` (Scanner) untuk mengambil input dari pengguna.
+2. `restoList` (ArrayList<Object>) untuk menyimpan data restoran.
+3. `menuList` (ArrayList<Object>) untuk menyimpan data menu.
+4. `nama` (String) untuk menyimpan nama restoran.
+5. `alamat` (String) untuk menyimpan alamat restoran.
+6. `idResto` (String) untuk menyimpan ID restoran.
+7. `idMenu` (String) untuk menyimpan ID menu.
+8. `namaMenu` (String) untuk menyimpan nama menu.
+9. `idRest` (ArrayList<String>) untuk menyimpan ID restoran dalam bentuk list.
+10. `namaRest` (ArrayList<String>) untuk menyimpan nama restoran dalam bentuk list.
+11. `alamatRest` (ArrayList<String>) untuk menyimpan alamat restoran dalam bentuk list.
+Metode-metode yang dimiliki kelas `menuAdmin` antara lain:
+1. `lihatResto()`: untuk menampilkan daftar restoran beserta menu yang tersedia.
+2. `tambahResto()`: untuk menambahkan restoran baru beserta menu-menu di dalamnya.
+3. `hapusResto()`: untuk menghapus data restoran dari list jika ada data tersimpan di dalamnya.
+  
+## Penjelasan Tentang Kode Program.
+
+### Bagian Login
 
 ![image](https://user-images.githubusercontent.com/113997689/232509975-cd25d5c5-588b-4973-a2fa-543607780e25.png)
 
@@ -57,7 +97,7 @@ Jika status user adalah "Customer", maka akan ditampilkan pilihan menu berikut:
 Setelah user memilih opsi, program akan mengeksekusi method terkait yang ada pada class `menuAdmin` untuk opsi pilihan menu yang berkaitan dengan admin atau pada class `customer` untuk opsi pilihan menu yang berkaitan dengan customer. Kemudian, layar akan dihapus dengan menggunakan method `cls.clearScreen()`, dan program akan memanggil kembali method `menu()` untuk menampilkan kembali menu setelah layar bersih. 
 Jika user memilih opsi selain dari 1-4, maka program akan menampilkan pesan "Username atau Password yang Diinputkan Salah!" dan memanggil kembali method `menu()` untuk menampilkan menu kembali.
 
-### Output
+#### Output
 
 ![image](https://user-images.githubusercontent.com/113997689/232642852-b32b4d3f-a9c9-496a-994d-aace51064182.png)
 
@@ -73,7 +113,7 @@ Gambar dibawah ini merupakan hasil login jika user berhasil masuk sebagai custom
 
 ![image](https://user-images.githubusercontent.com/113997689/232642463-7eb43eac-f6e7-4cae-b0de-490dfa8b5cf2.png)
 
-## Bagian Admin
+### Bagian Admin
 
 ![image](https://user-images.githubusercontent.com/113997689/232640796-51b544b6-2ef5-4757-8303-63fb9695efc7.png)
 
@@ -153,7 +193,7 @@ Kode program Java di atas merupakan bagian lanjutan dari kode program sebelumnya
 
 Dengan demikian, kode di atas digunakan untuk mengambil input data menu dari pengguna, menyimpan data menu tersebut ke dalam list `menuList`, dan menyimpan data resto ke dalam list `restoList`.
 
-### Output
+#### Output
 
 ![tambah resto](https://user-images.githubusercontent.com/113997689/232644249-d3d79398-3afc-4f3c-91e8-12ea83b79a05.png)
 
@@ -171,7 +211,7 @@ Gambar diatas merupakan hasil dari user admin jika memilih opsi yang pertama yai
 
 Kedua gambar diatas ini merupakan hasil dari user admin jika memilih opsi yang ketiga. Awalnya terdapat 2 data resto, kemudian user admin memilih opsi ketiga dan memasukkan index resto yaitu 1, maka resto yang berindex 1 tersebut menjadi terhapus. Hasilnya sesuai seperti pada gambar ke 2. Dan sekarang hanya tersisa 1 resto saja.
 
-## Bagian User
+### Bagian User
 
 ![image](https://user-images.githubusercontent.com/113997689/232705507-d81e31e3-93ff-4939-9717-9cd2ed026c8c.png)
 
@@ -226,7 +266,7 @@ Dalam kode di atas, terdapat beberapa langkah yang dijelaskan sebagai berikut:
 
 Ringkasnya, kode di atas menggambarkan alur eksekusi sebuah program Java yang memanggil metode "login()" dari objek "menuLogin" untuk melakukan proses login. Jika login berhasil (mengembalikan nilai true), maka program akan menampilkan menu pilihan kepada pengguna dalam perulangan yang berjalan terus menerus. Jika login gagal (mengembalikan nilai false), maka program akan mencetak pesan kesalahan.
 
-## Bagian Customer
+### Bagian Customer
 
 ![image](https://user-images.githubusercontent.com/113997689/232711465-5027ce88-1d1a-4c1d-8d6f-d6dcdf85a529.png)
 
