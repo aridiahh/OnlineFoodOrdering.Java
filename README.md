@@ -2,7 +2,12 @@
 Program Online Food Ordering merupakan program yang dirancang untuk memenuhi tugas pertama dari mata kuliah `Pemrograman Berorentasi Obyek`. Perancangan program ini dilaksanakan secara individu, atas nama `NI KADEK ARI DIAH LESTARI` dengan NIM `2205551069`.
 
 Program Online Food Ordering tersebut merupakan program penjualan makanan berbasis online yang dapat digunakan untuk memudahkan customer dalam berbelanja makanan tanpa harus berpergian keluar. Didalam program tersebut terdapat 2 tipe user, yaitu admin dan customer. Pada admin memiliki keunggulan yang dimana dapat melihat, menambah, dan menghapus restoran. Sedangkan customer, dapat membuat dan melihat pesanannya.
-Selain itu, terdapat pula data restorannya, yang dimana berisikan tentang nama, alamat, menu makanan atau minuman, dan serta harganya. Dan terdapat pula data ordernya, yang berisikan id retoran, id menu, kuantitas setiap menu (jumlah item), jarak ke lokasi antar, dan juga total harganya. Berikut merupakan penjelasan lebih detailnya.
+Selain itu, terdapat pula data restorannya, yang dimana berisikan tentang nama, alamat, menu makanan atau minuman, dan serta harganya. Dan terdapat pula data ordernya, yang berisikan id retoran, id menu, kuantitas setiap menu (jumlah item), jarak ke lokasi antar, dan juga total harganya. 
+
+Adapun UML dari program tersebut. UML dapat diakses melalui link di bawah ini.
+- LINK : 
+
+Berikut merupakan penjelasan tentang kode programnya yang lebih lanjut.
 
 ## Bagian Login
 
