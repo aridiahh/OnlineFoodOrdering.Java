@@ -2,7 +2,6 @@ public class User {
     //deklarasi atribut
     private String username, password, status;
     private String username_cust, password_cust;
-    static cls clearScreen = new cls();
 
     //Getter dan setter untuk atribut username_cust
     public String getUsername_cust() {

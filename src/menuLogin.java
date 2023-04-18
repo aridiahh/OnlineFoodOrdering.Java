@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class menuLogin {
-    static cls clss = new cls();
     static User users = new User();
     static Scanner input = new Scanner(System.in);
     static int pilihan;
@@ -28,7 +27,6 @@ public class menuLogin {
         System.out.print("  Masukkan password: ");
         password = input.nextLine();
         System.out.println("|__________________________________________________________|");
-        cls.clearScreen();
 
         //memeriksa apakah username dan password yang diinputkan user adalah benar
         if (users.getUsername().equals(username) || users.getUsername_cust().equals(username)) {
@@ -62,22 +60,17 @@ public class menuLogin {
             System.out.print("  Pilihan(1/2/3/4): ");
             pilihan = Integer.parseInt(input.nextLine());
             if (pilihan == 1) {
-                cls.clearScreen();
                 menuAdmin.lihatResto(); //melihat resto apa saja yang ada
             } else if (pilihan == 2) {
-                cls.clearScreen();
                 menuAdmin.tambahResto(); //menambahkan resto yang lain (baru)
             } else if (pilihan == 3) {
-                cls.clearScreen();
                 menuAdmin.hapusResto(); //menghapus resto yang admin ingin hapus
             } else if (pilihan == 4) {
-                cls.clearScreen();
                 login(); //kembali ke menu login
             } else if (pilihan == 5) {
                 System.exit(0); //keluar
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");
-                cls.clearScreen();
                 menu(); //ke menu dari Admin maupun Customer
             }
 
@@ -96,22 +89,17 @@ public class menuLogin {
             System.out.print("  Pilihan(1/2/3/4/5): ");
             pilihan = Integer.parseInt(input.nextLine());
             if (pilihan == 1) {
-                cls.clearScreen();
                 menuAdmin.lihatResto(); //melihat resto apa saja yang ada
             } else if (pilihan == 2) {
-                cls.clearScreen();
                 customer.tambahPesanan(); //untuk dapat menambah pesanan
             } else if (pilihan == 3) {
-                cls.clearScreen();
                 customer.lihatPesanan(); //melihat pesanan yang disediakan
             } else if (pilihan == 4) {
-                cls.clearScreen();
                 login(); //kembali ke menu login
             } else if (pilihan == 5) {
                 System.exit(0); //keluar
             } else {
                 System.out.println("Username atau Password yang Diinputkan Salah!");
-                cls.clearScreen();
                 menu(); //ke menu dari Admin maupun Customer
             }
         }

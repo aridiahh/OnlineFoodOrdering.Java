@@ -74,7 +74,7 @@ public class customer {
         int jarak = (int) (Math.random()*3) + 2;
         //meminta input id resto dari user
         System.out.print("Masukan id resto: ");
-        Scanner input = new Scanner(System.in); // Tambahkan inisialisasi Scanner
+        Scanner input = new Scanner(System.in); //penambahan inisialisasi Scanner
         String idResto = input.nextLine(); // Ubah menjadi variabel lokal
         //menampilkan daftar menu yang tersedia untuk resto tertentu
         showMenu(idResto);
@@ -114,8 +114,8 @@ public class customer {
             id_menu[i] = input.nextLine();
             System.out.print("Kuantitas: ");
             kuantitas[i] = Integer.parseInt(input.nextLine());
-            boolean menuFound = false; // tambahkan variabel boolean untuk mengecek apakah id_menu[i] ditemukan dalam id[]
-            for (int j = 0; j < menuList.size(); j++) { // tambahkan loop untuk mencari harga dan nama menu yang sesuai dengan id_menu[i]
+            boolean menuFound = false; //penambahan variabel boolean untuk mengecek apakah id_menu[i] ditemukan dalam id[]
+            for (int j = 0; j < menuList.size(); j++) { // penambahan loop untuk mencari harga dan nama menu yang sesuai dengan id_menu[i]
                 stringtok = new StringTokenizer(menuList.get(j).toString().replace("[", "").replace("]", ""), ",");
                 String currId = stringtok.nextToken().trim();
                 String currMenu = stringtok.nextToken().trim();
