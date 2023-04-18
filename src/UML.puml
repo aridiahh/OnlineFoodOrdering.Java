@@ -1,5 +1,4 @@
 @startuml
-
 class user {
 - username: String
 - password: String
@@ -64,5 +63,4 @@ user <--> menuLogin
 menuAdmin --> menuLogin
 customer --> menuLogin
 customer --> menuAdmin
-
 @enduml
