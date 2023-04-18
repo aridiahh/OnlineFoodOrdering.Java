@@ -166,6 +166,64 @@ Gambar diatas merupakan hasil dari user admin jika memilih opsi yang pertama yai
 
 Kedua gambar diatas ini merupakan hasil dari user admin jika memilih opsi yang ketiga. Awalnya terdapat 2 data resto, kemudian user admin memilih opsi ketiga dan memasukkan index resto yaitu 1, maka resto yang berindex 1 tersebut menjadi terhapus. Hasilnya sesuai seperti pada gambar ke 2. Dan sekarang hanya tersisa 1 resto saja.
 
+## Bagian User
+
+![image](https://user-images.githubusercontent.com/113997689/232705507-d81e31e3-93ff-4939-9717-9cd2ed026c8c.png)
+
+Kode di atas adalah contoh implementasi dari sebuah kelas bernama "User" dalam bahasa pemrograman Java. Kelas ini memiliki beberapa atribut dan metode yang digunakan untuk mengakses dan mengatur nilai atribut-atribut tersebut.
+
+1. Atribut
+Kelas "User" memiliki beberapa atribut yang dideklarasikan sebagai variabel privat, yaitu:
+- "username" (bertipe String): digunakan untuk menyimpan nilai username pengguna.
+- "password" (bertipe String): digunakan untuk menyimpan nilai password pengguna.
+- "status" (bertipe String): digunakan untuk menyimpan status pengguna.
+- "username_cust" (bertipe String): digunakan untuk menyimpan nilai username pelanggan.
+- "password_cust" (bertipe String): digunakan untuk menyimpan nilai password pelanggan.
+
+Semua atribut di atas bersifat privat, artinya hanya dapat diakses dan diubah nilainya dari dalam kelas "User" sendiri.
+
+2. Getter dan Setter
+Kelas "User" juga memiliki beberapa metode getter dan setter yang digunakan untuk mengakses dan mengatur nilai atribut-atribut tersebut. Getter adalah metode yang digunakan untuk mengambil nilai dari atribut, sedangkan setter adalah metode yang digunakan untuk mengatur atau mengubah nilai atribut.
+
+- Getter dan setter untuk atribut "username_cust".
+Metode "getUsername_cust()" digunakan untuk mengambil nilai dari atribut "username_cust" dan mengembalikan nilai tersebut. Metode "setUsername_cust(String username_cust)" digunakan untuk mengatur atau mengubah nilai atribut "username_cust" dengan nilai yang diberikan sebagai argumen.
+
+- Getter dan setter untuk atribut "password_cust".
+Metode "getPassword_cust()" digunakan untuk mengambil nilai dari atribut "password_cust" dan mengembalikan nilai tersebut. Metode "setPassword_cust(String password_cust)" digunakan untuk mengatur atau mengubah nilai atribut "password_cust" dengan nilai yang diberikan sebagai argumen.
+
+3. Penggunaan
+Dengan adanya getter dan setter untuk atribut "username_cust" dan "password_cust", kita dapat mengakses dan mengatur nilai atribut-atribut tersebut dari objek "User" yang telah dibuat. Contohnya sebagai berikut:
+
+Dengan demikian, kita dapat mengakses dan mengatur nilai dari atribut "username_cust" dan "password_cust" melalui metode getter dan setter yang telah didefinisikan dalam kelas "User". Penggunaan getter dan setter ini membantu dalam menjaga encapsulation atau pengkapsulan, yaitu prinsip dalam pemrograman berorientasi objek yang menjaga keberlanjutan dan konsistensi dari data dalam objek.
+
+![image](https://user-images.githubusercontent.com/113997689/232705809-eb03194b-94d4-4acf-8233-e2babbe0db3a.png)
+
+Getter dan Setter untuk atribut "username".  Metode "getUsername()" digunakan untuk mengambil nilai dari atribut "username" dan mengembalikan nilai tersebut. Metode "setUsername(String username)" digunakan untuk mengatur atau mengubah nilai atribut "username" dengan nilai yang diberikan sebagai argumen.
+
+Getter dan Setter untuk atribut "password". Metode "getPassword()" digunakan untuk mengambil nilai dari atribut "password" dan mengembalikan nilai tersebut. Metode "setPassword(String password)" digunakan untuk mengatur atau mengubah nilai atribut "password" dengan nilai yang diberikan sebagai argumen.
+
+Getter dan Setter untuk atribut "status". Metode "getStatus()" digunakan untuk mengambil nilai dari atribut "status" dan mengembalikan nilai tersebut. Tidak ada metode setter yang didefinisikan untuk atribut "status" dalam kode tersebut, artinya nilai atribut "status" tidak dapat diubah melalui metode setter.
+
+![image](https://user-images.githubusercontent.com/113997689/232709035-43eed889-f482-4f16-9812-877d518cc96d.png)
+
+Kode di atas adalah bagian dari metode "main" dalam sebuah program Java. Metode "main" adalah metode yang akan dijalankan pertama kali saat kita menjalankan sebuah program Java, dan merupakan titik awal eksekusi dari program tersebut.
+
+Dalam kode di atas, terdapat beberapa langkah yang dijelaskan sebagai berikut:
+
+1. Mengevaluasi kondisi pada baris "if (menuLogin.login())":
+   Kode "menuLogin.login()" digunakan untuk memanggil suatu metode bernama "login()" dari kelas atau objek "menuLogin" (asumsi bahwa "menuLogin" adalah suatu objek atau kelas yang telah didefinisikan sebelumnya). Hasil yang dikembalikan oleh metode "login()" akan dievaluasi sebagai suatu kondisi boolean (true atau false) dalam pernyataan "if".
+
+2. Jika kondisi pada langkah (1) bernilai true:
+   Jika hasil evaluasi kondisi pada langkah (1) adalah true, maka program akan masuk ke dalam blok pernyataan "if". Dalam blok ini, terdapat sebuah perulangan "while (true)" yang akan terus berjalan selama kondisi "true". Dalam perulangan ini, akan dipanggil metode "menu()" dari objek "menuLogin" secara berulang, yang mungkin berisi logika atau tampilan untuk menampilkan menu pilihan kepada pengguna.
+
+3. Jika kondisi pada langkah (1) bernilai false:
+   Jika hasil evaluasi kondisi pada langkah (1) adalah false, maka program akan melanjutkan ke blok pernyataan "else". Dalam blok ini, akan dicetak pesan "Username atau Password yang Diinputkan Salah!" menggunakan metode "System.out.println()". Pesan ini akan ditampilkan kepada pengguna jika metode "login()" mengembalikan nilai false, yang mengindikasikan bahwa username atau password yang diinputkan tidak valid.
+
+Ringkasnya, kode di atas menggambarkan alur eksekusi sebuah program Java yang memanggil metode "login()" dari objek "menuLogin" untuk melakukan proses login. Jika login berhasil (mengembalikan nilai true), maka program akan menampilkan menu pilihan kepada pengguna dalam perulangan yang berjalan terus menerus. Jika login gagal (mengembalikan nilai false), maka program akan mencetak pesan kesalahan.
+
+
+
+
 
 
 
